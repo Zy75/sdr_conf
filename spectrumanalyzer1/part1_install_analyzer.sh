@@ -4,6 +4,8 @@ sudo dnf groupinstall "Development Tools"
 
 sudo dnf install fftw-devel libusb-devel java-1.8.0-openjdk make automake gcc gcc-c++ ant
 
+sudo dnf install hackrf hackrf-devel
+
 cd ~
 
 git clone --depth=1 --recurse-submodules https://github.com/pavsa/hackrf-spectrum-analyzer.git
