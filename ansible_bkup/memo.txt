@@ -1,0 +1,16 @@
+- name: clone osmosdr
+  git:
+    repo: https://github.com/osmocom/gr-osmosdr
+    dest: /home/spctx100v/gr-osmosdr
+    remote: upstream
+    accept_hostkey: yes
+
+- name: create build dir
+  file: state=directory path=~/gr-osmosdr/build
+
+- name: build
+  command: "{{ item }} chdir=~/gr-osmosdr/build"
+  with_items:
+    - cmake ..
+
+

@@ -1,0 +1,59 @@
+- name: install the 'Development tools' package group
+  become: true
+  dnf:
+    name: '@Development tools'
+    state: present
+
+- name: install packages1
+  become: true
+  dnf: name={{ item }} state=present
+  with_items:
+  - hackrf
+  - hackrf-devel
+  - cmake
+  - gcc
+  - gcc-c++
+  - boost
+  - boost-devel
+  - cppunit-devel
+  - fftw-devel
+  - swig
+  - python2-cheetah
+  - pygtk2
+  - gsl-devel
+  - PyQt4
+  - PyQt4-devel
+  - qwt-devel
+  - python2-wxpython
+  - python2-lxml
+  - gmp-devel
+ 
+- name: pip install
+  pip: name={{ item }} extra_args=--user
+  with_items:
+  - six
+  - mako 
+  - sphinx
+    
+
+- name: clone gnuradio
+  git:
+    repo: https://github.com/gnuradio/gnuradio
+    dest: /home/spctx100v/gnuradio
+    remote: upstream
+    accept_hostkey: yes
+    recursive: yes
+
+
+- name: create build dir
+  file: state=directory path=~/gnuradio/build
+
+- name: cmake
+  command: "cmake .. chdir=~/gnuradio/build"
+
+- name: make
+  command: "make -j4 chdir=~/gnuradio/build"
+  
+- name: make install
+  become: true
+  command: "make install chdir=~/gnuradio/build"

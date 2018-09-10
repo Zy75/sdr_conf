@@ -1,0 +1,6 @@
+
+ - hosts: vm
+   remote_user: spctx100v
+
+   roles:
+     - sdr_conf 
