@@ -1,4 +1,4 @@
 
-One problem I found about Ansible is no realtime stdout message is shown during make or cmake.
+One problem I found about Ansible is that it shows no realtime stdout message when make or cmake.
 
-So trying a set of simple shell script.
+So trying a set of simple shell script. As of now no problem.
