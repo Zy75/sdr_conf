@@ -19,3 +19,5 @@ echo "MAKE FINISHED. OK?"
 read
 
 sudo make install
+
+source ~/.bashrc
