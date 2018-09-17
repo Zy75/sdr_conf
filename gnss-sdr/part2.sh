@@ -22,4 +22,6 @@ read
 
 sudo make install
 
+source ~/.bashrc
+
 sudo ldconfig

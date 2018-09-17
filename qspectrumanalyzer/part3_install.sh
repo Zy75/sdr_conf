@@ -23,3 +23,5 @@ cd pyFFTW
 
 pip3 install --user .
 
+source ~/.bashrc
+
